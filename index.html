@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRES CORONAS - Tienda de Gorras</title>
+    <link rel="stylesheet" href="estilos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- HEADER CON IMAGEN -->
+    <header class="header-hero">
+        <nav class="menu menu-hero">
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="carrito.html">Carrito</a></li>
+            </ul>
+        </nav>
+        <!-- Toggle para cambiar tema -->
+        <button id="theme-toggle" class="theme-toggle">🌙 Modo Oscuro</button>
+    </header>
+
+    <main>
+        <section id="inicio" class="hero">
+            <h2>Bienvenido<br>a<br>TRES CORONAS</h2>
+            <a href="#productos" class="btn">Ver Productos</a>
+        </section>
+
+        <section id="productos" class="productos">
+            <h2>Nuestras Gorras</h2>
+            <div class="grid">
+                <!-- Productos aquí (igual que antes) -->
+                <div class="producto" data-nombre="El Mago Crystals" data-precio="2100">
+                    <a href="Mago.html" class="ver-producto">
+                    <img src="Mago.jpeg" alt="El Mago Crystals">
+                    </a>
+                    <h3>El Mago Crystals</h3>
+                    <p>$2,100</p>
+                    <div class="cantidad-selector">
+                        <button class="btn-cantidad disminuir">-</button>
+                        <input type="number" class="cantidad-input" value="1" min="1">
+                        <button class="btn-cantidad aumentar">+</button>
+                    </div>
+                    <button class="agregar-carrito">Agregar al Carrito</button>
+                </div>
+                <div class="producto" data-nombre="Barbas Murakami" data-precio="2300">
+                    <a href="Murakami.html" class="ver-producto">
+                    <img src="Barbas Murakami.jpeg" alt="Barbas Murakami">
+                    </a>
+                    <h3>Barbas Murakami</h3>
+                    <p>$2,300</p>
+                    <div class="cantidad-selector">
+                        <button class="btn-cantidad disminuir">-</button>
+                        <input type="number" class="cantidad-input" value="1" min="1">
+                        <button class="btn-cantidad aumentar">+</button>
+                    </div>
+                    <button class="agregar-carrito">Agregar al Carrito</button>
+                </div>
+                <div class="producto" data-nombre="Dandy Canelo" data-precio="2000">
+                    <a href="Canelo.html" class="ver-producto">
+                    <img src="Dandy Canelo.jpeg" alt="Dandy Canelo">
+                    </a>
+                    <h3>Dandy Canelo</h3>
+                    <p>$2,000</p>
+                    <div class="cantidad-selector">
+                        <button class="btn-cantidad disminuir">-</button>
+                        <input type="number" class="cantidad-input" value="1" min="1">
+                        <button class="btn-cantidad aumentar">+</button>
+                    </div>
+                    <button class="agregar-carrito">Agregar al Carrito</button>
+                </div>
+                <div class="producto" data-nombre="Rude Total Black" data-precio="3000">
+                    <a href="Black.html" class="ver-producto">
+                    <img src="Rude total black.jpeg" alt="Rude Total Black">
+                    </a>
+                    <h3>Rude Total Black</h3>
+                    <p>$3,000</p>
+                    <div class="cantidad-selector">
+                        <button class="btn-cantidad disminuir">-</button>
+                        <input type="number" class="cantidad-input" value="1" min="1">
+                        <button class="btn-cantidad aumentar">+</button>
+                    </div>
+                    <button class="agregar-carrito">Agregar al Carrito</button>
+                </div>
+                <div class="producto" data-nombre="31 crystals black" data-precio="1650">
+                    <a href="crystals.html" class="ver-producto">
+                    <img src="31 crystals black.jpeg" alt="31 crystals black">
+                    </a>
+                    <h3>31 crystals black</h3>
+                    <p>$1,650</p>
+                    <div class="cantidad-selector">
+                        <button class="btn-cantidad disminuir">-</button>
+                        <input type="number" class="cantidad-input" value="1" min="1">
+                        <button class="btn-cantidad aumentar">+</button>
+                    </div>
+                    <button class="agregar-carrito">Agregar al Carrito</button>
+                </div>
+                <div class="producto" data-nombre="31 crystals white" data-precio="1650">
+                    <a href="white.html" class="ver-producto">
+                    <img src="31 crystals white.jpeg" alt="31 crystals white">
+                    </a>
+                    <h3>31 crystals white</h3>
+                    <p>$1,650</p>
+                    <div class="cantidad-selector">
+                        <button class="btn-cantidad disminuir">-</button>
+                        <input type="number" class="cantidad-input" value="1" min="1">
+                        <button class="btn-cantidad aumentar">+</button>
+                    </div>
+                    <button class="agregar-carrito">Agregar al Carrito</button>
+                </div>
+                <div class="producto" data-nombre="31 hats aniversario" data-precio="1700">
+                    <a href="aniversario.html" class="ver-producto">
+                    <img src="31 hats aniversario.jpeg" alt="31 hats aniversario">
+                    </a>
+                    <h3>31 hats aniversario</h3>
+                    <p>$1,700</p>
+                    <div class="cantidad-selector">
+                        <button class="btn-cantidad disminuir">-</button>
+                        <input type="number" class="cantidad-input" value="1" min="1">
+                        <button class="btn-cantidad aumentar">+</button>
+                    </div>
+                    <button class="agregar-carrito">Agregar al Carrito</button>
+                </div>
+                <div class="producto" data-nombre="Barbas B star" data-precio="2000">
+                    <a href="star.html" class="ver-producto">
+                    <img src="Barbas B star.jpeg" alt="Barbas B star">
+                    </a>
+                    <h3>Barbas B star</h3>
+                    <p>$2,000</p>
+                    <div class="cantidad-selector">
+                        <button class="btn-cantidad disminuir">-</button>
+                        <input type="number" class="cantidad-input" value="1" min="1">
+                        <button class="btn-cantidad aumentar">+</button>
+                    </div>
+                    <button class="agregar-carrito">Agregar al Carrito</button>
+                </div>
+                <div class="producto" data-nombre="Barbas 77" data-precio="2500">
+                    <a href="77.html" class="ver-producto">
+                    <img src="Barbas 77.jpeg" alt="Barbas 77">
+                    </a>
+                    <h3>Barbas 77</h3>
+                    <p>$2,500</p>
+                    <div class="cantidad-selector">
+                        <button class="btn-cantidad disminuir">-</button>
+                        <input type="number" class="cantidad-input" value="1" min="1">
+                        <button class="btn-cantidad aumentar">+</button>
+                    </div>
+                    <button class="agregar-carrito">Agregar al Carrito</button>
+                </div>
+                <div class="producto" data-nombre="Barbas chrome rich forever" data-precio="2500">
+                    <a href="chrome.html" class="ver-producto">
+                    <img src="Barbas chrome rich forever.jpeg" alt="Barbas chrome rich forever">
+                    </a>
+                    <h3>Barbas chrome rich forever</h3>
+                    <p>$2,500</p>
+                    <div class="cantidad-selector">
+                        <button class="btn-cantidad disminuir">-</button>
+                        <input type="number" class="cantidad-input" value="1" min="1">
+                        <button class="btn-cantidad aumentar">+</button>
+                    </div>
+                    <button class="agregar-carrito">Agregar al Carrito</button>
+                </div>
+                <div class="producto" data-nombre="Barbas Rich Forever" data-precio="2700">
+                    <a href="forever.html" class="ver-producto">
+                    <img src="Barbas Rich Forever.jpeg" alt="Barbas Rich Forever">
+                    </a>
+                    <h3>Barbas Rich Forever</h3>
+                    <p>$2,700</p>
+                    <div class="cantidad-selector">
+                        <button class="btn-cantidad disminuir">-</button>
+                        <input type="number" class="cantidad-input" value="1" min="1">
+                        <button class="btn-cantidad aumentar">+</button>
+                    </div>
+                    <button class="agregar-carrito">Agregar al Carrito</button>
+                </div>
+                <div class="producto" data-nombre="Barbas Chrome ct" data-precio="3000">
+                    <a href="ct.html" class="ver-producto">
+                    <img src="Chrome ct.jpeg" alt="Barbas Chrome ct">
+                    </a>
+                    <h3>Barbas Chrome ct</h3>
+                    <p>$3,000</p>
+                    <div class="cantidad-selector">
+                        <button class="btn-cantidad disminuir">-</button>
+                        <input type="number" class="cantidad-input" value="1" min="1">
+                        <button class="btn-cantidad aumentar">+</button>
+                    </div>
+                    <button class="agregar-carrito">Agregar al Carrito</button>
+                </div>
+                <div class="producto" data-nombre="Innedit X Anymore" data-precio="1800">
+                    <a href="anymore.html" class="ver-producto">
+                    <img src="Innedit X Anymore.jpeg" alt="Innedit X Anymore">
+                    </a>
+                    <h3>Innedit X Anymore Full set</h3>
+                    <p>$1,800</p>
+                    <div class="cantidad-selector">
+                        <button class="btn-cantidad disminuir">-</button>
+                        <input type="number" class="cantidad-input" value="1" min="1">
+                        <button class="btn-cantidad aumentar">+</button>
+                    </div>
+                    <button class="agregar-carrito">Agregar al Carrito</button>
+                </div>
+                <div class="producto" data-nombre="Pulsos Van cleef" data-precio="1650">
+                    <a href="cleef.html" class="ver-producto">
+                    <img src="Pulsos Van cleef.jpeg" alt="Pulsos Van cleef">
+                    </a>
+                    <h3>Pulsos Van Cleef</h3>
+                    <p>$1,650</p>
+                    <div class="cantidad-selector">
+                        <button class="btn-cantidad disminuir">-</button>
+                        <input type="number" class="cantidad-input" value="1" min="1">
+                        <button class="btn-cantidad aumentar">+</button>
+                    </div>
+                    <button class="agregar-carrito">Agregar al Carrito</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" class="contacto">
+            <h2>Contáctanos</h2>
+            <form>
+                <input type="text" placeholder="Tu Nombre" required>
+                <input type="email" placeholder="Tu Email" required>
+                <textarea placeholder="Mensaje"></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 TRES CORONAS. La mejor Tienda de Gorras.</p>
+    </footer>
+
+    <script>
+let carrito = [];
+
+// CARGAR CARRITO Y TEMA GUARDADO
+window.addEventListener("load", () => {
+    const guardado = localStorage.getItem("carrito");
+    if (guardado) carrito = JSON.parse(guardado);
+    
+    // Cargar tema guardado
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-theme');
+        document.getElementById('theme-toggle').textContent = '☀️ Modo Claro';
+    }
+});
+
+// FUNCIONES PARA MANEJAR CANTIDAD
+function disminuirCantidad(e) {
+    const input = e.target.parentElement.querySelector('.cantidad-input');
+    let cantidad = parseInt(input.value);
+    if (cantidad > 1) {
+        input.value = cantidad - 1;
+    }
+}
+
+function aumentarCantidad(e) {
+    const input = e.target.parentElement.querySelector('.cantidad-input');
+    let cantidad = parseInt(input.value);
+    input.value = cantidad + 1;
+}
+
+// AGREGAR AL CARRITO
+function agregarAlCarrito(e) {
+    const producto = e.target.parentElement;
+    const nombre = producto.dataset.nombre;
+    const precio = parseFloat(producto.dataset.precio);
+    const imagen = producto.querySelector("img").src;
+    const cantidad = parseInt(producto.querySelector('.cantidad-input').value);
+    
+    // Agregar al carrito
+    const existe = carrito.find(item => item.nombre === nombre);
+    if (existe) {
+        existe.cantidad += cantidad;
+    } else {
+        carrito.push({ nombre, precio, imagen, cantidad });
+    }
+    
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    alert(`Producto agregado al carrito: ${cantidad} unidad(es) 🛒`);
+}
+
+document.querySelectorAll(".agregar-carrito").forEach(btn => btn.addEventListener("click", agregarAlCarrito));
+
+// Event listeners para botones de cantidad
+document.querySelectorAll('.disminuir').forEach(btn => btn.addEventListener('click', disminuirCantidad));
+document.querySelectorAll('.aumentar').forEach(btn => btn.addEventListener('click', aumentarCantidad));
+
+// Toggle de tema
+document.getElementById('theme-toggle').addEventListener('click', () => {
+    document.body.classList.toggle('dark-theme');
+    const isDark = document.body.classList.contains('dark-theme');
+    document.getElementById('theme-toggle').textContent = isDark ? '☀️ Modo Claro' : '🌙 Modo Oscuro';
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+});
+</script>
+
+<script>
+document.querySelectorAll(".ver-producto").forEach(link => {
+    link.addEventListener("click", e => {
+        const producto = e.target.closest(".producto");
+
+        const data = {
+            nombre: producto.dataset.nombre,
+            precio: producto.dataset.precio,
+            imagen: producto.querySelector("img").src
+        };
+
+        localStorage.setItem("productoSeleccionado", JSON.stringify(data));
+    });
+});
+</script>
+
+</body>
+</html>
