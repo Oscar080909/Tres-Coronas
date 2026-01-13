@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito - TRES CORONAS</title>
+
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="carrito.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="header-hero">
+    <nav class="menu menu-hero">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="index.html#productos">Productos</a></li>
+            <li><a href="index.html#contacto">Contacto</a></li>
+            <li><a href="carrito.html">Carrito</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+<section class="carrito-pagina">
+    <h2>Tu Carrito de Compras</h2>
+
+    <ul id="lista-carrito"></ul>
+    <p id="total-carrito">Total: $0</p>
+
+    <div class="carrito-botones">
+        <button id="vaciar-carrito">Vaciar Carrito</button>
+        <button id="finalizar-compra">Finalizar Compra</button>
+    </div>
+
+    <!-- MODAL COMPRA -->
+    <div id="modal-compra" class="modal-compra" style="display:none;">
+        <div class="modal-contenido">
+            <span class="cerrar-modal">&times;</span>
+
+            <form id="form-compra" class="form-compra">
+                <h3>Datos de Envío</h3>
+
+                <input type="text" id="nombre" placeholder="Nombre completo" required>
+                <input type="text" id="direccion" placeholder="Calle y número" required>
+                <input type="text" id="colonia" placeholder="Colonia" required>
+                <input type="text" id="ciudad" placeholder="Ciudad" required>
+                <input type="text" id="cp" placeholder="Código Postal" required>
+
+                <h3>Forma de Pago</h3>
+                <select id="pago" required>
+                    <option value="">Selecciona una opción</option>
+                    <option value="tarjeta">Tarjeta</option>
+                    <option value="transferencia">Transferencia</option>
+                    <option value="efectivo">Pago contra entrega</option>
+                </select>
+
+                <button type="submit">Confirmar Pedido</button>
+            </form>
+        </div>
+    </div>
+
+    <a href="index.html" class="btn continuar">Continuar Comprando</a>
+</section>
+</main>
+
+<footer>
+    <p>&copy; 2026 TRES CORONAS. La mejor Tienda de Gorras.</p>
+</footer>
+
+<script>
+let carrito = [];
+
+window.addEventListener('load', () => {
+    // Cargar tema guardado
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-theme');
+    }
+
+    // Cargar carrito guardado
+    const carritoGuardado = localStorage.getItem('carrito');
+    if (carritoGuardado) {
+        carrito = JSON.parse(carritoGuardado);
+        actualizarCarrito();
+    }
+});
+
+function actualizarCarrito() {
+    const listaCarrito = document.getElementById('lista-carrito');
+    listaCarrito.innerHTML = '';
+    let total = 0;
+
+    carrito.forEach((item, index) => {
+        const li = document.createElement('li');
+        li.classList.add('carrito-item');
+
+        li.innerHTML = `
+            <div class="item-imagen">
+                <img src="${item.imagen}" alt="${item.nombre}">
+            </div>
+            <div class="item-detalles">
+                <span class="nombre">${item.nombre}</span>
+                <div class="cantidad-control">
+                    <button class="btn-cantidad disminuir" data-index="${index}">-</button>
+                    <span class="cantidad">x${item.cantidad}</span>
+                    <button class="btn-cantidad aumentar" data-index="${index}">+</button>
+                </div>
+                <span class="precio">$${item.precio * item.cantidad}</span>
+            </div>
+        `;
+
+        listaCarrito.appendChild(li);
+        total += item.precio * item.cantidad;
+    });
+
+    document.getElementById('total-carrito').textContent = `Total: $${total}`;
+
+    // Agregar event listeners a los botones de cantidad
+    document.querySelectorAll('.disminuir').forEach(btn => {
+        btn.addEventListener('click', disminuirCantidad);
+    });
+    document.querySelectorAll('.aumentar').forEach(btn => {
+        btn.addEventListener('click', aumentarCantidad);
+    });
+}
+
+function disminuirCantidad(e) {
+    const index = e.target.dataset.index;
+    if (carrito[index].cantidad > 1) {
+        carrito[index].cantidad--;
+        localStorage.setItem('carrito', JSON.stringify(carrito));
+        actualizarCarrito();
+    } else {
+        // Si cantidad es 1, eliminar el item
+        carrito.splice(index, 1);
+        localStorage.setItem('carrito', JSON.stringify(carrito));
+        actualizarCarrito();
+    }
+}
+
+function aumentarCantidad(e) {
+    const index = e.target.dataset.index;
+    carrito[index].cantidad++;
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+    actualizarCarrito();
+}
+
+document.getElementById('vaciar-carrito').addEventListener('click', () => {
+    carrito = [];
+    localStorage.removeItem('carrito');
+    actualizarCarrito();
+});
+
+document.getElementById('finalizar-compra').addEventListener('click', () => {
+    if (carrito.length === 0) {
+        alert('Tu carrito está vacío.');
+        return;
+    }
+    document.getElementById('modal-compra').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+});
+
+document.querySelector('.cerrar-modal').addEventListener('click', () => {
+    document.getElementById('modal-compra').style.display = 'none';
+    document.body.style.overflow = 'auto';
+});
+
+document.getElementById('form-compra').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const nombre = document.getElementById('nombre').value;
+    const direccion = document.getElementById('direccion').value;
+    const colonia = document.getElementById('colonia').value;
+    const ciudad = document.getElementById('ciudad').value;
+    const cp = document.getElementById('cp').value;
+    const pago = document.getElementById('pago').value;
+
+    let mensaje = `🧢 *PEDIDO TRES CORONAS*%0A%0A`;
+    carrito.forEach(item => {
+        mensaje += `• ${item.nombre} x${item.cantidad} - $${item.precio * item.cantidad}%0A`;
+    });
+
+    let total = carrito.reduce((sum, item) => sum + item.precio * item.cantidad, 0);
+
+    mensaje += `%0A💰 *Total:* $${total}%0A`;
+    mensaje += `%0A📦 *Envío:*%0A`;
+    mensaje += `${nombre}%0A${direccion}%0A${colonia}, ${ciudad}%0ACP: ${cp}%0A`;
+    mensaje += `%0A💳 *Pago:* ${pago}`;
+
+    const telefono = "5214493633144"; // CAMBIA ESTE NÚMERO
+    const url = `https://wa.me/${telefono}?text=${mensaje}`;
+
+    window.open(url, '_blank');
+
+    carrito = [];
+    localStorage.removeItem('carrito');
+    actualizarCarrito();
+    this.reset();
+
+    document.getElementById('modal-compra').style.display = 'none';
+    document.body.style.overflow = 'auto';
+});
+
+
+</script>
+</body>
+</html>
